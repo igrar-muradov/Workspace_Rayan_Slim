@@ -1,5 +1,7 @@
 package com.ltp.workbook31;
 
+import com.ltp.workbook31.validation.Age;
+import com.ltp.workbook31.validation.Username;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,11 +18,13 @@ public class User {
     private String lastName;
     @NotBlank(message = "Username cannot be blank")
     @Size(min = 7, message = "Username name is too short")
+    @Username(message = "Cannot contain special characters or uppercase characters")
     private String userName;
     @Email
     private String email;
     @Past(message = "Birthdate should be in the past")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Age(message = "Must be at least 18")
     private Date dateOfBirth;
 
     public User() {
