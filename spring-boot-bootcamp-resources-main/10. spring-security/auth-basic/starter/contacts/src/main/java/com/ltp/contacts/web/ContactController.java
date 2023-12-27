@@ -41,7 +41,7 @@ public class ContactController {
         return new ResponseEntity<>(contact, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/contact/{id}")
+    @DeleteMapping("/delete/{id}/contact")  // temporary changed from "/contact/{id}"
     public ResponseEntity<HttpStatus> deleteContact(@PathVariable String id) {
         contactService.deleteContact(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
